@@ -1,0 +1,255 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <title>สั่งเครื่องดื่ม</title>
+  </head>
+  <body class="bg-dark bg-gradient">
+    <script src="https://static.line-scdn.net/liff/edge/versions/2.10.0/sdk.js"></script>
+    <script
+      type="text/javascript"
+      src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"
+    ></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <div class="container">
+      <div class="card text-center bg-dark bg-gradient">
+        <div class="card-block bg-dark bg-gradient">
+          <div class="input-group">
+            <span class="input-group-text" for="dandbid">เครื่องดื่ม</span>
+            <select class="custom-select" id="dandbid" required onchange="populate(this.id , 'dandbadd')">
+              <option selected disabled value="">...</option>
+              <option value="12A11">น้ำดื่ม</option>
+              <option value="6eee5cea-d23e-43e9-a076-6a259696a2cf">กาแฟซองแดง</option>
+              <option value="8babe5f7-1117-4fa2-a619-c12857b344f1">กาแฟซองเขียว</option>
+              <option value="9121c4e1">Strawberry soda</option>
+              <option value="6cb8670d">โค้ก</option>
+            
+              <option value="ca942559">โกโก้เย็น</option>
+              
+              <option value="e23f1519">โกโก้ร้อน</option>
+             
+              <option value="d508e74e">ชาใสร้อน</option>
+              <option value="c8245acb">ชาใสเย็น</option>
+              <option value="3ebd771e">ชามะนาวร้อน</option>
+              <option value="1dca528e">ชามะนาวเย็น</option>
+              <option value="397573a3">ชาไทยร้อน</option>
+              <option value="b055c202">ชาไทยเย็น</option>
+              <option value="fcb799c3">ชาเขียวเย็น</option>
+              <option value="b5c430b0">มัทฉะลาเต้ร้อน</option>
+              <option value="c9aace75">มัทฉะลาเต้เย็น</option>
+              <option value="9654d96a">ชาเขียวร้อน</option>
+              <option value="d37479a9">อิตาเลี่ยนโซดาเย็น</option>
+              <option value="9d5115ae">นมสดร้อน</option>
+              <option value="d36d6407">นมสดเย็น</option>
+              <option value="f2444293">นมชมพูเย็น</option>
+              <option value="a9e9a92e-7f70-44b1-a582-694d05fe6c0f">ชาไต้หวันร้อน</option>
+              <option value="2e9e619c-54ae-470b-a294-f06853acb33a">ชาไต้หวันเย็น</option>
+              
+            </select>
+            <select class="custom-select" id="dandbadd" required>
+              <option selected disabled value="">...</option>
+              
+            </select>
+          </div>
+          <div><p id="tablefixed" class="badge bg-danger">...</p></div>
+          <div class="input-group-prepend justify-content-around">
+            <button
+              id="btnqty1"
+              type="button"
+              class="btn btn-success"
+              style="visibility: hidden"
+            >
+              รับ 1
+            </button>
+            <button
+              id="btnqty2"
+              type="button"
+              class="btn btn-success"
+              style="visibility: hidden"
+            >
+              รับ 2
+            </button>
+            <button
+              id="btnqty3"
+              type="button"
+              class="btn btn-success"
+              style="visibility: hidden"
+            >
+              รับ 3
+            </button>
+          </div>
+          <div>
+          
+         
+          <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fmazdachonburihiclass%2Fposts%2F1535050366851747&show_text=false&width=300" width="300" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+         
+          
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      $('#btnqty1').click(function (event) {
+        post('1').then((message) => {
+          liff.closeWindow();
+        });
+      });
+      $('#btnqty2').click(function (event) {
+        post('2').then((message) => {
+          liff.closeWindow();
+        });
+      });
+      $('#btnqty3').click(function (event) {
+        post('3').then((message) => {
+          liff.closeWindow();
+        });
+      });
+
+      liff
+        .init({
+          liffId: '1655945045-6d2w85MA', // Use own liffId to sales01
+        })
+        .then(() => {
+          if (!liff.isLoggedIn()) {
+            liff.login();
+          } else {
+            liff.getFriendship().then((data) => {
+              if (!data.friendFlag) {
+              //  // not friend or being blocked, force to add friend
+
+                window.location = 'https://line.me/R/ti/p/@oib3447y';
+              } else {
+              //if(true){
+                // something you want to do
+                liff
+                  .getProfile()
+                  .then((profile) => {
+                    p = profile.pictureUrl;
+                    u = profile.userId;
+                    n = profile.displayName;
+                    m = profile.statusMessage;
+                    e = liff.getDecodedIDToken().email;
+                    os = liff.getOS();
+                    lang = liff.getLanguage();
+                    ver = liff.getVersion();
+                    lver = liff.getLineVersion();
+                    inclient = liff.isInClient();
+                    acctoken = liff.getAccessToken();
+                    idtoken = liff.getIDToken();
+                    ty = liff.getContext().type;
+                    vt = liff.getContext().viewType;
+                    let urlParams = new URLSearchParams(window.location.search);
+                    tablenumber = urlParams.get('tabletake');
+                    //document.getElementById("lpictureUrl").src = p;
+                    //document.getElementById('ldisplayName').innerHTML =
+                    //  '<h5>' + n + '</h5>';
+                   
+                    document.getElementById('tablefixed').innerHTML =
+                      'รับที่ ' + urlParams.get('tabletake') + ' ';
+                    document.getElementById('btnqty1').style.visibility =
+                      'visible';
+                    document.getElementById('btnqty2').style.visibility =
+                      'visible';
+                    document.getElementById('btnqty3').style.visibility =
+                      'visible';
+                    //document.getElementById("btnmis").style.visibility = "visible";
+                    
+                  })
+                  .catch((err) => {
+                    console.log('error', err);
+                  });
+              } // FriendFlag
+            }); //get Friendship
+          } //if else getProfile
+        })
+        .catch((err) => {
+          // Error happens during initialization
+          console.log(err.code, err.message);
+        });
+      var tablenumber = '';
+      var dandbid,
+        dandbadd,
+        dandbname = '';
+      var p,
+        u,
+        n,
+        m,
+        e,
+        f,
+        d = '';
+      var os,
+        lang,
+        ver,
+        lver = '';
+      var inclient,
+        acctoken,
+        idtoken,
+        ty,
+        vt = '';
+      function post(btn) {
+        d = new Date().toLocaleString('ja-JP');
+        dandbid = document.getElementById('dandbid').value;
+        var sel = document.getElementById('dandbid');
+        dandbname = sel.options[sel.selectedIndex].text;
+        //dandbname = document.getElementById("dandbid").options[document.getElementById("dandbid").selectedIndex].text;
+        dandbadd = document.getElementById('dandbadd').value;
+        //norn = document.querySelector('input[name="inlineRadioNorn"]:checked').value;
+        //norn = document.getElementById("numberorname").value;
+        const obj = {
+          events: 'lineorder',
+          pictureUrl: p,
+          userId: u,
+          displayName: n,
+          statusMessage: m,
+          email: e,
+          phone: f,
+          submitdatetime: d,
+          os: os,
+          language: lang,
+          version: ver,
+          lineversion: lver,
+          isinclient: inclient,
+          type: ty,
+          viewType: vt,
+          tabeltake: tablenumber,
+          takeqty: btn,
+          dandbid: dandbid,
+          dandbname: dandbname,
+          dandbadd: dandbadd,
+          queryResult: {
+            queryText: 'lineorder',
+            intent: { displayName: 'lineorder' },
+          },
+        };
+        const url =
+          'https://script.google.com/macros/s/AKfycbySjBraIBwXe0fAQF6PBiKZR4KK881qPg-snF9Rh4z63WhaVXMA/exec';
+        fetch(url, { method: 'POST', body: JSON.stringify(obj) });
+        return Promise.resolve('Success');
+      }
+      function populate(s1 , s2){
+      var s1 = document.getElementById(s1);
+      var s2 = document.getElementById(s2);
+      s2.innerHTML = "";
+
+      if(s1.value == "12A11" || s1.value == "6cb8670d"){
+        var optionArray = ['|...' , 'เย็น|เย็น','ไม่เย็น|ไม่เย็น'];
+
+      }else if(s1.value != "12A11" && s1.value != "6cb8670d"){
+        var optionArray = ['|...' , 'หวานน้อย|หวานน้อย' , 'หวาน50|หวาน50%','ไม่หวาน|ไม่หวาน'  , 'เพิ่มหวาน|เพิ่มหวาน'];
+      }
+      for(var option in optionArray){
+        var pair = optionArray[option].split("|");
+        var newoption = document.createElement("option");
+        newoption.value = pair[0];
+        newoption.innerHTML = pair[1];
+        s2.options.add(newoption);
+      }
+    }
+    </script>
+  </body>
+</html>
