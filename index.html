@@ -119,12 +119,12 @@
             liff.login();
           } else {
             liff.getFriendship().then((data) => {
-              if (!data.friendFlag) {
+              //if (!data.friendFlag) {
               //  // not friend or being blocked, force to add friend
 
-                window.location = 'https://line.me/R/ti/p/@oib3447y';
-              } else {
-              //if(true){
+              //  window.location = 'https://line.me/R/ti/p/@oib3447y';
+              //} else {
+              if(true){
                 // something you want to do
                 liff
                   .getProfile()
