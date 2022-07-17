@@ -285,7 +285,7 @@
 
     const db = getFirestore();
 
-    async function AddDocAutoID(){
+    function AddDocAutoID(){
       var ref = collection(db, "ordering");
 
       const docRef = await addDoc(
