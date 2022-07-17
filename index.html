@@ -104,7 +104,8 @@
     <script>
       $('#btnqty1').click(function (event) {
         post('1').then((message) => {
-          liff.closeWindow();
+          //liff.closeWindow();
+          AddDocAutoID();
         });
       });
       $('#btnqty2').click(function (event) {
@@ -293,7 +294,7 @@
         }
       );
     }
-    btnqty1.addEventListener("click",AddDocAutoID);
+    
     </script>
   </body>
 </html>
