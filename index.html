@@ -104,13 +104,14 @@
     <script>
       $('#btnqty1').click(function (event) {
         post('1').then((message) => {
-          //liff.closeWindow();
-          AddDocAutoID();
+          liff.closeWindow();
+          //AddDocAutoID();
         });
       });
       $('#btnqty2').click(function (event) {
         post('2').then((message) => {
-          liff.closeWindow();
+          //liff.closeWindow();
+          AddDocAutoID();
         });
       });
       $('#btnqty3').click(function (event) {
@@ -273,11 +274,12 @@
       projectId: "zhiew2",
       storageBucket: "zhiew2.appspot.com",
       messagingSenderId: "59567261602",
-      appId: "1:59567261602:web:5f70f9d37b60b032b194fb"
+      appId: "1:59567261602:web:033c6de1aa183150b194fb"
     };
   
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
+  
     import { getFirestore , doc , addDoc} from "https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js";
 
     const db = getFirestore();
