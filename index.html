@@ -104,8 +104,8 @@
     <script>
       $('#btnqty1').click(function (event) {
         post('1').then((message) => {
-          liff.closeWindow();
-          //AddDocAutoID();
+          //liff.closeWindow();
+          AddDocAutoID();
         });
       });
       $('#btnqty2').click(function (event) {
@@ -260,6 +260,34 @@
       }
     }
     </script>
+    <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBr4hf_UgeqXGz33rSs9L9DVV6OBKGUp7o",
+      authDomain: "zhiew2.firebaseapp.com",
+      projectId: "zhiew2",
+      storageBucket: "zhiew2.appspot.com",
+      messagingSenderId: "59567261602",
+      appId: "1:59567261602:web:5f70f9d37b60b032b194fb"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    import { getFirestore , doc , addDoc} from "https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js";
 
+    const db = getFirestore();
+
+    function AddDocAutoID(){
+      var ref = collection(db, "ordering");
+      const docRef = await addDoc(ref , {
+        D : "z"
+      })
+    }
+  </script>
   </body>
 </html>
