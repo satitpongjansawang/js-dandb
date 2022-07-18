@@ -283,10 +283,12 @@
     const db = getFirestore();
 
     function AddDocAutoID(){
-      var ref = collection(db, "ordering");
-      const docRef = await addDoc(ref , {
-        D : "z"
-      });
+      db.collection('ordering').add({
+      someBool: false,
+      someNumber: 13.2,
+      DandBID: db.doc('menu/12A11'),
+      tabletakeid: db.doc('tabletake/table2')
+    });
     }
   </script>
   </body>
