@@ -264,6 +264,7 @@
    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
   <script>
+   function AddDocAutoID (){
    const firebase = require("firebase");
    // Required for side-effects
    require("firebase/firestore");
@@ -282,7 +283,7 @@ firebase.initializeApp(firebaseConfig);
 
 // Initialize Cloud Firestore and get a reference to the service
 const db = firebase.firestore();
-    function AddDocAutoID (){
+   
         db.collection("ordering").add({
           first: "Ada",
           last: "Lovelace",
